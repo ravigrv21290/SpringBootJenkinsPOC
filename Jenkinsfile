@@ -7,10 +7,11 @@ pipeline {
     stages {
 		
 		stage ('Checkout') {
+			Steps {
 
-           checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'c0587111-ea11-43a8-8c41-5a54b4e6b80b', url: 'https://github.com/ravigrv21290/SpringBootJenkinsPOC.git']]])
+           			checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'c0587111-ea11-43a8-8c41-5a54b4e6b80b', url: 'https://github.com/ravigrv21290/SpringBootJenkinsPOC.git']]])
 
-            
+			}
 
         }
 		
