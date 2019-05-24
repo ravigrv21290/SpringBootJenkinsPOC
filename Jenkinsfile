@@ -6,6 +6,14 @@ pipeline {
 			steps {
 				git 'https://github.com/ravigrv21290/SpringBootJenkinsPOC.git'				
 			}          
+
+	agent any 
+
+    stages {		
+		stage ('Checkout') {
+			steps {
+				git 'https://github.com/ravigrv21290/SpringBootJenkinsPOC.git'
+			}          
         }
 		
         stage ('Compile Stage') {
@@ -32,7 +40,7 @@ pipeline {
             }
         }
     }
-	
+
 	post {
         	always {
             		echo 'Copying artifacts'
