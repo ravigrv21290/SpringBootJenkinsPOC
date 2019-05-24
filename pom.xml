@@ -15,7 +15,6 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.4.1.RELEASE</version>
-		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
@@ -36,17 +35,41 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.sonarsource.scanner.maven</groupId>
+			<artifactId>sonar-maven-plugin</artifactId>
+			<version>3.2</version>
+		</dependency>
+
 
 	</dependencies>
 
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
+		<pluginManagement>
+  <plugins>
+      <plugin>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-maven-plugin</artifactId>
+	  </plugin>
+    <plugin>
+      <groupId>org.sonarsource.scanner.maven</groupId>
+      <artifactId>sonar-maven-plugin</artifactId>
+      <version>3.5.0.1254</version>
+      <executions>
+        <execution>
+          <phase>verify</phase>
+          <goals>
+            <goal>sonar</goal>
+          </goals>
+        </execution>
+      </executions>
+    </plugin>
+  </plugins>
+</pluginManagement>
 	</build>
+	
+	
 
 
 </project>
