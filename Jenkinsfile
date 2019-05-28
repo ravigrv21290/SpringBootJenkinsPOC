@@ -32,6 +32,13 @@ pipeline {
                 }
             }
         }
+	stage ('Package Stage') {
+            step([$class: 'InfluxDbPublisher',
+        		customData: null,
+        		customDataMap: null,
+        		customPrefix: null,
+        		target: 'jenkins'])
+        }
     }
 
 	post {
