@@ -32,7 +32,7 @@ pipeline {
                 }
             }
         }
-	stage ('Package Stage') {
+	stage ('Statistics Stage') {
             step([$class: 'InfluxDbPublisher',
         		customData: null,
         		customDataMap: null,
