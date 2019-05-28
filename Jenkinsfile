@@ -33,11 +33,9 @@ pipeline {
             }
         }
 	stage ('Statistics Stage') {
-            step([$class: 'InfluxDbPublisher',
-        		customData: null,
-        		customDataMap: null,
-        		customPrefix: null,
-        		target: 'jenkins'])
+		steps{
+		influxDbPublisher customPrefix: '', customProjectName: '', jenkinsEnvParameterField: '', jenkinsEnvParameterTag: ''
+		}
         }
     }
 
