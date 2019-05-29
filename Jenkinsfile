@@ -55,7 +55,7 @@ pipeline {
 
 				//copyArtifacts filter: '', fingerprintArtifacts: true, flatten: true, projectName: 'Multibranch-Pipeline/master', target: '/var/lib/jenkins/ravi'
 					
-				influxDbPublisher selectedTarget: 'jenkins', measurementName: 'Pipeline', customPrefix: '', customProjectName: 'Jenkins Pipeline Statistics', jenkinsEnvParameterField: '', jenkinsEnvParameterTag: ''
+				influxDbPublisher customPrefix: '', customProjectName: 'Jenkins Pipeline Statistics', jenkinsEnvParameterField: '''Jenkins=CI''', jenkinsEnvParameterTag: 'git=scm',selectedTarget: 'jenkins', measurementName: 'Pipeline'
 			}
 
         	success {
