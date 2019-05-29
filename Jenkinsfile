@@ -28,34 +28,34 @@ pipeline {
         stage ('Package Stage') {
             steps {
                 withMaven(maven : 'apache-maven-3.6.0') {
-                    bat 'mvn package'
+                    bat 'mv package'
                 }
             }
-	}}
+	}
     }
 
 	post {
         	always {
             		echo 'Copying artifacts'
 					
-					//archiveArtifacts 'target/surefire-reports/*.xml'
+				//archiveArtifacts 'target/surefire-reports/*.xml'
 					
-					// It takes all files from source like .java,.class,.jar,xml etc
-					// archive '**'  
+				// It takes all files from source like .java,.class,.jar,xml etc
+				// archive '**'  
 					
-					// takes all .xml files
-					// archive '**/*.xml'
+				// takes all .xml files
+				// archive '**/*.xml'
 					
-					archive 'target*//*.jar'
-					// copy only target files
+				archive 'target*//*.jar'
+				// copy only target files
 	
-					//copyArtifacts filter: 'target*//*.jar', fingerprintArtifacts: true, projectName: 'Multibranch-Pipeline/master', target: '/var/lib/jenkins/ravi'
+				//copyArtifacts filter: 'target*//*.jar', fingerprintArtifacts: true, projectName: 'Multibranch-Pipeline/master', target: '/var/lib/jenkins/ravi'
 	
-					//copyArtifacts filter: 'target/surefire-reports/*.xml', fingerprintArtifacts: true, flatten: true, projectName: 'Multibranch-Pipeline/master', target: '/var/lib/jenkins/ravi'	
+				//copyArtifacts filter: 'target/surefire-reports/*.xml', fingerprintArtifacts: true, flatten: true, projectName: 'Multibranch-Pipeline/master', target: '/var/lib/jenkins/ravi'	
 
-					//copyArtifacts filter: '', fingerprintArtifacts: true, flatten: true, projectName: 'Multibranch-Pipeline/master', target: '/var/lib/jenkins/ravi'
+				//copyArtifacts filter: '', fingerprintArtifacts: true, flatten: true, projectName: 'Multibranch-Pipeline/master', target: '/var/lib/jenkins/ravi'
 					
-					influxDbPublisher customPrefix: '', customProjectName: '', jenkinsEnvParameterField: '', jenkinsEnvParameterTag: ''
+				influxDbPublisher customPrefix: '', customProjectName: '', jenkinsEnvParameterField: '', jenkinsEnvParameterTag: ''
 			}
 
         	success {
