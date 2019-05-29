@@ -28,7 +28,7 @@ pipeline {
         stage ('Package Stage') {
             steps {
                 withMaven(maven : 'apache-maven-3.6.0') {
-                    bat 'mv package'
+                    bat 'mvn package'
                 }
             }
 	}
