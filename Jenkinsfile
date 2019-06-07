@@ -55,11 +55,11 @@ pipeline {
 
 				//copyArtifacts filter: '', fingerprintArtifacts: true, flatten: true, projectName: 'Multibranch-Pipeline/master', target: '/var/lib/jenkins/ravi'
 					
+				jacoco classPattern: '**/target/classes', exclusionPattern: '**/*Test*.class', execPattern: '**/jacoco.exec', inclusionPattern: '**/*.class'
+			
 				influxDbPublisher customPrefix: '', customProjectName: 'Jenkins Pipeline Statistics', jenkinsEnvParameterField: '''Jenkins=CI''', jenkinsEnvParameterTag: 'git=scm',selectedTarget: 'jenkins'
 				
-				influxDbPublisher customPrefix: '',selectedTarget: 'jacoco'	
-			
-				jacoco exclusionPattern: '**/*Test*.class', execPattern: '**/jacoco.exec', inclusionPattern: '**/*.class'
+				influxDbPublisher customPrefix: '',selectedTarget: 'jacoco'
 			}
 
         	success {
