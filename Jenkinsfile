@@ -57,7 +57,7 @@ pipeline {
 					
 				influxDbPublisher customPrefix: '', customProjectName: 'Jenkins Pipeline Statistics', jenkinsEnvParameterField: '''Jenkins=CI''', jenkinsEnvParameterTag: 'git=scm',selectedTarget: 'jenkins', measurementName: 'Pipeline'
 			
-				jacoco()
+				jacoco exclusionPattern: '**/*Test*.class', execPattern: '**/jacoco.exec', inclusionPattern: '**/*.class'
 			}
 
         	success {
