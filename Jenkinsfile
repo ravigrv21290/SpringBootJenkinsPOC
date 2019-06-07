@@ -59,7 +59,7 @@ pipeline {
 			
 				influxDbPublisher customPrefix: '', customProjectName: 'Jenkins Pipeline Statistics', jenkinsEnvParameterField: '''Jenkins=CI''', jenkinsEnvParameterTag: 'git=scm',selectedTarget: 'jenkins'
 				
-				influxDbPublisher customPrefix: '',selectedTarget: 'jacoco'
+				//influxDbPublisher customPrefix: '',selectedTarget: 'jacoco'
 			}
 
         	success {
