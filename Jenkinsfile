@@ -59,7 +59,7 @@ pipeline {
 			
 				//jacoco( execPattern: 'target/*.exec', classPattern: 'target/classes', sourcePattern: 'src/main/java', exclusionPattern: 'src/test*')
 			
-				jacoco buildOverBuild: true, changeBuildStatus: true, deltaBranchCoverage: '80', deltaClassCoverage: '70', deltaComplexityCoverage: '70', deltaInstructionCoverage: '80', deltaLineCoverage: '70', deltaMethodCoverage: '70', maximumBranchCoverage: '80', maximumClassCoverage: '70', maximumComplexityCoverage: '70', maximumInstructionCoverage: '80', maximumLineCoverage: '70', maximumMethodCoverage: '70', minimumBranchCoverage: '20',conditionalCoverage: '80', statementCoverage: '80'	
+				jacoco buildOverBuild: true, changeBuildStatus: true, deltaBranchCoverage: '80', deltaClassCoverage: '70', deltaComplexityCoverage: '70', deltaInstructionCoverage: '80', deltaLineCoverage: '70', deltaMethodCoverage: '70', maximumBranchCoverage: '80', maximumClassCoverage: '70', maximumComplexityCoverage: '70', maximumInstructionCoverage: '80', maximumLineCoverage: '70', maximumMethodCoverage: '70', minimumBranchCoverage: '20'	
 			
 				influxDbPublisher customPrefix: '', customProjectName: 'Jenkins Pipeline Statistics', jenkinsEnvParameterField: '''Jenkins=CI''', jenkinsEnvParameterTag: 'git=scm',selectedTarget: 'jenkins'
 				
