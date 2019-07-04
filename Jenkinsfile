@@ -32,6 +32,14 @@ pipeline {
                 }
             }
 	}
+	    
+	stage ('Sonar Analysis Stage') {
+            steps {
+                withMaven(maven : 'apache-maven-3.6.0') {
+                    bat 'mvn sonar:sonar -Dsonar.host.url=http://localhost:9000/sonar'
+                }
+            }
+	}
     }
 
 	post {
