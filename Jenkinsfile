@@ -1,3 +1,4 @@
+
 pipeline {
 	
 	agent any 
@@ -12,7 +13,8 @@ pipeline {
         stage ('Compile Stage') {
             steps {
                 withMaven(maven : 'apache-maven-3.6.0') {
-                    bat 'mvn clean install'               
+                    bat 'mvn clean install'  
+			bat 'mvn --version'
                 }
             }
         }
