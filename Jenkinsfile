@@ -6,6 +6,10 @@ pipeline {
 	stage ('Checkout') {
 		steps {
 			git 'https://github.com/ravigrv21290/SpringBootJenkinsPOC.git'
+			
+			echo "${GIT_BRANCH}"
+			echo "${GIT_URL}"
+			echo "${GIT_COMMIT}"
 		}          
         }
 		
