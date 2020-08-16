@@ -1,6 +1,10 @@
 pipeline {
 	
 	agent any 
+	
+	tools {
+        maven 'Maven_3.6.3' 
+    }
 
     stages {		
 	stage ('Checkout') {
@@ -15,34 +19,34 @@ pipeline {
 		
         stage ('Compile Stage') {
             steps {
-                withMaven(maven : 'apache-maven-3.6.3') {
+               
                     bat 'mvn clean install'  
 			bat 'mvn --version'
-                }
+                
             }
         }
 
         stage ('Testing Stage') {
             steps {
-                withMaven(maven : 'apache-maven-3.6.3') {
+                
                     bat 'mvn test'
-                }
+            
             }
         }
 		
         stage ('Package Stage') {
             steps {
-                withMaven(maven : 'apache-maven-3.6.3') {
+                
                     bat 'mvn package'
-                }
+                
             }
 	}
 	    
 	stage ('Sonar Analysis Stage') {
             steps {
-                withMaven(maven : 'apache-maven-3.6.3') {
+               
                     bat 'mvn sonar:sonar -Dsonar.host.url=http://localhost:9000/sonar'
-                }
+                
             }
 	}
     }
