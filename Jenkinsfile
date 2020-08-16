@@ -15,7 +15,7 @@ pipeline {
 		
         stage ('Compile Stage') {
             steps {
-                withMaven(maven : 'apache-maven-3.6.0') {
+                withMaven(maven : 'apache-maven-3.6.3') {
                     bat 'mvn clean install'  
 			bat 'mvn --version'
                 }
@@ -24,7 +24,7 @@ pipeline {
 
         stage ('Testing Stage') {
             steps {
-                withMaven(maven : 'apache-maven-3.6.0') {
+                withMaven(maven : 'apache-maven-3.6.3') {
                     bat 'mvn test'
                 }
             }
@@ -32,7 +32,7 @@ pipeline {
 		
         stage ('Package Stage') {
             steps {
-                withMaven(maven : 'apache-maven-3.6.0') {
+                withMaven(maven : 'apache-maven-3.6.3') {
                     bat 'mvn package'
                 }
             }
@@ -40,7 +40,7 @@ pipeline {
 	    
 	stage ('Sonar Analysis Stage') {
             steps {
-                withMaven(maven : 'apache-maven-3.6.0') {
+                withMaven(maven : 'apache-maven-3.6.3') {
                     bat 'mvn sonar:sonar -Dsonar.host.url=http://localhost:9000/sonar'
                 }
             }
